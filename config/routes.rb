@@ -17,18 +17,18 @@ root to:"homes#top"
 
 get "home/about"=>"homes#about",as:"about"
 
-resources:products,only[:index,:show]
+resources:products,only: [:index,:show]
 
-resources:costomers,only[:show,:edit,:update] do
+resources:costomers,only: [:show,:edit,:update] do
   get "customers/unsubscribe"=>"costomers#unsubscribe",as:"unsubscribe"
   patch "customers/withdrawal"=>"customers#withdrawal",as:"withdrawal"
 end
 
-resources:cart_items,only[:index,:update,:destroy,:create] do
+resources:cart_items,only: [:index,:update,:destroy,:create] do
   delete "cart_items/destroy_all"=>"cart_items#destroy_all",as:"destroy_all"
 end
 
-resources:orders,only[:new,:create,:index,:show] do
+resources:orders,only: [:new,:create,:index,:show] do
   post "orders/confirm"=>"orders#confirm",as:"confirm"
   get "orders/complete"=>"orders#complete",as:"complete"
 end
@@ -45,19 +45,19 @@ namespace :admin do
 end
 
 namespace :admin do
-  resources:genres,only[:index,:create,:edit,:update]
+  resources:genres,only: [:index,:create,:edit,:update]
 end
 
 namespace :admin do
-  resources:costomers,only[:index,:show,:edit,:update]
+  resources:costomers,only: [:index,:show,:edit,:update]
 end
 
 namespace :admin do
-  resources:orders,only[:show,:update]
+  resources:orders,only: [:show,:update]
 end
 
 namespace :admin do
-  resources:order_details,only[:update]
+  resources:order_details,only: [:update]
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
