@@ -13,52 +13,58 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 # 顧客用
-root to:"homes#top"
+scope module: :public do
+	root to:"homes#top"
+  get "about"=>"homes#about",as:"about"
 
-get "home/about"=>"homes#about",as:"about"
+end
 
-resources:products,only[:index,:show]
+scope module: :public do
+  resources:products,only: [:index,:show]
+end
 
-resources:costomers,only[:show,:edit,:update] do
+scope module: :public do
+  get 'cutomers/my_page' => 'customers#show'
+  get 'cutomers/information/edit' => 'customers#edit'
+  patch 'cutomers/information' => 'customers#update'
+  
+  
   get "customers/unsubscribe"=>"costomers#unsubscribe",as:"unsubscribe"
   patch "customers/withdrawal"=>"customers#withdrawal",as:"withdrawal"
 end
-
-resources:cart_items,only[:index,:update,:destroy,:create] do
+scope module: :public do
+  resources:cart_items,only: [:index,:update,:destroy,:create] do
   delete "cart_items/destroy_all"=>"cart_items#destroy_all",as:"destroy_all"
+  end
 end
 
-resources:orders,only[:new,:create,:index,:show] do
+scope module: :public do
+  resources:orders,only: [:new,:create,:index,:show] do
   post "orders/confirm"=>"orders#confirm",as:"confirm"
   get "orders/complete"=>"orders#complete",as:"complete"
+  end
 end
 
-resources:sipping_addresses
+scope module: :public do
+  resources:sipping_addresses
+end
 
 # 管理者用
 namespace :admin do
-  get "homes#top"
-end
+  root to:'homes#top'
 
-namespace :admin do
   resources:products
-end
 
-namespace :admin do
-  resources:genres,only[:index,:create,:edit,:update]
-end
+  resources:genres,only: [:index,:create,:edit,:update]
+  
+  resources:costomers,only: [:index,:show,:edit,:update]
 
-namespace :admin do
-  resources:costomers,only[:index,:show,:edit,:update]
-end
+  resources:orders,only: [:show,:update]
 
-namespace :admin do
-  resources:orders,only[:show,:update]
-end
-
-namespace :admin do
-  resources:order_details,only[:update]
+  resources:order_details,only: [:update]
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
