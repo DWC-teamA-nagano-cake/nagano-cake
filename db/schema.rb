@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2022_11_16_093550) do
-
-
+ActiveRecord::Schema.define(version: 2022_11_16_094634) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +80,11 @@ ActiveRecord::Schema.define(version: 2022_11_16_093550) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "genre", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id", null: false
@@ -103,16 +105,30 @@ ActiveRecord::Schema.define(version: 2022_11_16_093550) do
     t.integer "postage", null: false
     t.integer "total_payment", null: false
     t.integer "method_of_payment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
-    
-  create_table "genres", force: :cascade do |t|
-    t.string "genre", null: false
 
+  create_table "products", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.boolean "is_active", default: true, null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "name", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  
 end
