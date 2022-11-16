@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_11_16_093550) do
     t.integer "postage", null: false
     t.integer "total_payment", null: false
     t.integer "method_of_payment", null: false
+  end
     
   create_table "genres", force: :cascade do |t|
     t.string "genre", null: false
@@ -113,4 +114,5 @@ ActiveRecord::Schema.define(version: 2022_11_16_093550) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  
 end
