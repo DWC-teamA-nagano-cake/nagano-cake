@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  has_many :cart_items
+  has_many :order_details
+  belongs_to :genre
 
   has_one_attached :product_image
 
