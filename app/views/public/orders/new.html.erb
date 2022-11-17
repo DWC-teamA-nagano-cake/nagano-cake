@@ -11,7 +11,7 @@
       <p><%= f.radio_button:select_address,0 %>ご自身の住所</p>
       <%= current_customer.address %>
       <p><%= f.radio_button:select_address,1 %>登録済み住所</p>
-      <%= f.select:shipping_address_id,options_from_collection_for_select(@shipping_addresses,:id,:name) %>
+      <%= f.select:shipping_address_id,options_from_collection_for_select(@shipping_addresses,:id,:address_display) %>
       <p><%= f.radio_button:select_address,2 %>新しいお届け先</p>
       <table>
         <tr>
