@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+
+      <h1>ジャンル一覧・追加</h1>
+      <!--ジャンル名登録フォーム-->
+      <%= form_with model@genre, local:true do |f| %>
+        <%= f.label :genre %>
+        <%= f.text_field :genre %>
+        <%= f.submit '新規投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
+      <% end %>
+    </div>
+  </div>
+</div>
