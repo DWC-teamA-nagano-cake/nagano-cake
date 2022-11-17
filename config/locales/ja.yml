@@ -13,7 +13,7 @@
         
       order_details:
         making_status:
-          can_not_start: "着手不可"
+          can_not_start: "製作不可"
           waiting_for_production: "製作待ち"
           production: "製作中"
           completed: "製作完了"

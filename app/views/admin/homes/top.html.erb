@@ -1,0 +1,30 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto">
+   <br>
+　 <h3>注文履歴一覧</h3>
+   <table class='table  table-inverse'>
+    <thead>
+      <tr class="table-secondary">
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </tr>
+      </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order) %></td>
+
+      <td><%= order.name %></td>
+      <td><%= @order_details.where(order_id: order.id).sum(:count) %></td>
+      <td><%= Order.statuses_i18n[@order_new.status] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+   </table>
+
+  </div>
+ </div>
+</div>
