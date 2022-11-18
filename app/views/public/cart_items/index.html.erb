@@ -35,7 +35,7 @@
           </td>
           <td>
             <% form_with model: cart_item do |f| %>
-            <%= f.select :quantity, option_for_select(cart_item, {selected: cart_item.quantity}) %>
+            <%= f.select :quantity, quantity_options, {selected: cart_item.quantity}, {class: "select"} %>
             <%= f.submit "変更", "btn btn-success" %>
             <% end %>
           </td>
