@@ -47,8 +47,8 @@
            <tr>
            <td><%= order_detail.product.name %></td>
            <td><%= (order_detail.product.price * 1.1).floor %></td>
-           <td><%= order_detail.count %></td>
-           <td><% subtotal = ((order_detail.product.price*order_detail.count)*1.1).to_i %>
+           <td><%= order_detail.quantity %></td>
+           <td><% subtotal = ((order_detail.product.price*order_detail.quantity)*1.1).to_i %>
            <%= subtotal %>
            </td>
            <td>
@@ -70,7 +70,7 @@
             <td>商品合計</td>
             <td>
               <% @order_details.each do |order_detail| %>
-               <% subtotal = ((order_detail.product.price*order_detail.count)*1.1).to_i %>
+               <% subtotal = ((order_detail.product.price*order_detail.quantity)*1.1).to_i %>
                 <% total += subtotal %>
                 <% end %>
                 <%= total %>

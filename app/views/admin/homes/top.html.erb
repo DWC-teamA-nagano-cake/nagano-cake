@@ -18,7 +18,7 @@
         <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order) %></td>
 
       <td><%= order.name %></td>
-      <td><%= @order_details.where(order_id: order.id).sum(:count) %></td>
+      <td><%= @order_details.where(order_id: order.id).sum(:quantity) %></td>
       <td><%= Order.statuses_i18n[@order_new.order_status] %></td>
       </tr>
       <% end %>
