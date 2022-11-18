@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   belongs_to :genre
 
   has_one_attached :product_image
+  
+  validates :price, presence: true
 
   def get_product_image
     unless product_image.attached?
@@ -12,4 +14,9 @@ class Product < ApplicationRecord
     end
   end
 
+  def with_tax_price
+    tax = 1.1
+    (price*tax).floor
+  end
+  
 end
