@@ -1,6 +1,7 @@
 class Admin::GenresController < ApplicationController
   def index
     @genres = Genre.all
+    @genre = Genre.new
   end
 
   def show
@@ -12,15 +13,26 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    product = Genre.new(product_params)
-    if product.save
-      redirect_to admin_products
+    genre = Genre.new(genre_params)
+    if genre.save
+      redirect_to admin_genres
+    end
+  end
+
+  def edit
+    @genre = Genre.find(params[:id])
+  end
+
+  def update
+    genre = Genre.find(params[:id])
+    if genre.update(genre_params)
+      redirect_to admin_genres
     end
   end
 
   private
 
-  def product_params
-    params.require(:product).permit(:genre_id, :is_active, :name, :description, :price)
+  def genre_params
+    params.require(:genre).permit(:genre)
   end
 end
