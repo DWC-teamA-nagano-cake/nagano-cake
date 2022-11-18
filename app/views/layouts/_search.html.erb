@@ -1,0 +1,6 @@
+<!--検索フォーム-->
+
+<%= form_with do |f| %>
+<%= f.text_field :name, class: "align-center", placeholder: "検索" %>
+<%= f.submit "検索", class:'btn btn-success' %>
+<% end %>
