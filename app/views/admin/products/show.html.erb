@@ -7,24 +7,28 @@
       <div class="row">
         <!--商品画像-->
         <div>画像</div>
-        <!--商品データ-->
+        <!--商品画像-->
+          <%= image_tag @product.image, size:"320x240" %>
         <div>
           <table class='table'>
             <tr>
               <td>商品名</td>
-              <td><%= @product.name %></td>
+              <td><%= @product.name %></td >
+              <td>商品名</td>
             </tr>
             <tr>
               <td>商品説明</td>
-              <td><%= @product.name %></td>
+              <td><%= @product.description %></td>
+              <td>商品説明</td>
             </tr>
             <tr>
               <td>ジャンル</td>
-              <td><%= @product.name %></td>
+              <td><%= @product.genre.genre %></td>
+              <td>ジャンル</td>
             </tr>
             <tr>
               <td>税込価格<br />（税抜価格）</td>
-              <td>（<%= @product.price.to_s(:delimited) %>）円</td>
+              <td><%= (@product.price*1.1).round.to_s(:delimited) %>（<%= @product.price.to_s(:delimited) %>）円</td>
             </tr>
             <tr>
               <td>販売ステータス</td>
@@ -37,7 +41,7 @@
               </td>
             </tr>
           </table>
-          <button type="button" class="btn btn-success">編集する</button>
+          <%= link_to "編集する", edit_admin_product_path class: "btn btn-success" %>
         </div>
 
       </div>
