@@ -40,7 +40,14 @@ class Public::OrdersController < ApplicationController
     end
 
     CartItem.destroy_all
-    redirect_to order_complete_path
+    redirect_to complete
+  end
+
+  def complete
+  end
+
+  def index
+    @orders=Order.all
   end
 
   private
