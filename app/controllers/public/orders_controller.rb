@@ -1,11 +1,11 @@
 class Public::OrdersController < ApplicationController
-  
+
   def new
     customer=current_customer
     @order=Order.new
     @shipping_addresses=customer.shipping_address.all
   end
-  
+
   def confirm
     @order=Order.new(order_params)
     if params[:order][:select_address]=='0'
@@ -24,11 +24,29 @@ class Public::OrdersController < ApplicationController
     @order_new=Order.new
     render :confirm
   end
-  
-  private
-  
-  def order_params
-    params.require(:order).permit(:method_of_payment,:post_code,:address,:name)
+
+  def create
+    @order=Order.new(order_params)
+    @order.save
+    @cart_items=current_customer.cart_items.all
+
+    @cart_items.each do |cart_item|
+      @order_details=OrderDetail.new
+      @order_details.order_id=@order.id
+      @order_details.product_id=cart_item.product.id
+      @order_details.tax_price=cart_item.product.with_tax_price
+      @order_details.making_status=0
+      @order_details.save
+    end
+
+    CartItem.destroy_all
+    redirect_to order_complete_path
   end
-  
+
+  private
+
+  def order_params
+    params.require(:order).permit(:customer_id,:order_status,:name,:post_code,:address,:postage,:total_payment,:method_of_payment)
+  end
+
 end
