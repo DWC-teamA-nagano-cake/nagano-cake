@@ -7,7 +7,7 @@
     <div class="col-6">
       <%= @product.name %>
       <%= @product.description %>
-     ¥<%= @product.price.to_i*1.1.floor %>(税込)
+     ¥<%= number_with_delimiter @product.with_tax_price %>(税込)
     </div>
   </div>
 
@@ -16,7 +16,7 @@
     <div class="col-3">
       <% form_with model: @cart_item url: cart_items_path method: :post do |f| %>
       <%= f.hidden_field :product_id, :value => @product.id %>
-      <%= f.serect :quantity, [["1個",1],["2個",2],["3個",3],["4個",4],["5個",5],["6個",6],["7個",7],["8個",8],["9個",9],["10個",10]], {include_blank: "個数選択"} %>
+      <%= f.select :quantity, [["1個",1],["2個",2],["3個",3],["4個",4],["5個",5],["6個",6],["7個",7],["8個",8],["9個",9],["10個",10]], {include_blank: "個数選択"} %>
     </div>
     <div class="col-3">
       <%= f.submit "カートに入れる", class: "btn btn-primary" %>
