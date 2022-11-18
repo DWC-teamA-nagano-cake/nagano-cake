@@ -1,9 +1,8 @@
 class Public::OrdersController < ApplicationController
 
   def new
-    customer=current_customer
     @order=Order.new
-    @shipping_addresses=customer.shipping_address.all
+    @shipping_addresses=ShippingAddress.all
   end
 
   def confirm
@@ -48,6 +47,11 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders=Order.all
+  end
+
+  def show
+    @order=Order.find(params[:id])
+    @order_details=OrderDetail.where(order_id:params[:id])
   end
 
   private
