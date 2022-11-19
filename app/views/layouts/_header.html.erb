@@ -1,6 +1,6 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
+<header class="shadow-sm" style="opacity: 0.7;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-secondary bg-gradient">
+    <div class="container-fluid">
         <!--会員用のヘッダー-->
         <% if customer_signed_in? %>
         <h5 class="ml-5">ようこそ、<%= current_customer.last_name %>さん!</h5>
@@ -25,11 +25,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li><%= link_to "商品一覧", admin_products_path, class: 'nav-link text-dark' %></li>
-            <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li>
-            <li><%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li>
-            <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+            <li><%= link_to "商品一覧", admin_products_path, class: 'nav-link text-white' %></li>
+            <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-white' %></li>
+            <li><%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-white' %></li>
+            <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-white' %></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %></li>
           </ul>
           <div><%= render 'layouts/search' %></div>
         </div>
@@ -40,10 +40,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li><%= link_to "About", about_path,class: 'nav-link text-dark' %></li>
-            <li><%= link_to "商品一覧", products_path,class: 'nav-link text-dark' %></li>
-            <li><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-dark' %></li>
-            <li><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-dark' %></li>
+            <li><%= link_to "About", about_path,class: 'nav-link text-white' %></li>
+            <li><%= link_to "商品一覧", products_path,class: 'nav-link text-white' %></li>
+            <li><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-white' %></li>
+            <li><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-white' %></li>
           </ul>
           <div><%= render 'layouts/search' %></div>
         </div>
