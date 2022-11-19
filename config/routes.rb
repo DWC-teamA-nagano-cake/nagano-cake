@@ -24,12 +24,12 @@ scope module: :public do
 end
 
 scope module: :public do
-  get 'cutomers/my_page' => 'customers#show'
-  get 'cutomers/information/edit' => 'customers#edit'
-  patch 'cutomers/information' => 'customers#update'
-  
-  
-  get "customers/unsubscribe"=>"costomers#unsubscribe",as:"unsubscribe"
+  get 'customers/my_page' => 'customers#show'
+  get 'customers/information/edit' => 'customers#edit'
+  patch 'customers/information' => 'customers#update'
+
+
+  get "customers/unsubscribe"=>"customers#unsubscribe",as:"unsubscribe"
   patch "customers/withdrawal"=>"customers#withdrawal",as:"withdrawal"
 end
 scope module: :public do
@@ -56,7 +56,7 @@ namespace :admin do
   resources:products
 
   resources:genres,only: [:index,:create,:edit,:update]
-  
+
   resources:customers,only: [:index,:show,:edit,:update]
 
   resources:orders,only: [:show,:update]
