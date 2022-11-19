@@ -15,11 +15,11 @@
       <!--商品ID-->
       <td><%= product.id %></td>
       <!--商品名-->
-      <td><%= link_to product.name, product %></td>
+      <td><%= link_to product.name, admin_product_path(product.id) %></td>
       <!--税抜価格-->
       <td><%= product.price %></td>
       <!--ジャンル-->
-      <td><%= product.genre %></td>
+      <td><%= product.genre.genre %></td>
       <!--販売ステータス-->
       <td>
         <% if product.is_active %>

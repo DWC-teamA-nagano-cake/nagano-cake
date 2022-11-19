@@ -30,10 +30,10 @@ class Public::CartItemsController < ApplicationController
         @genres = Genre.all
         @cart_item = CartItem.new
         @cart_item.errors[:base] <<  "個数を入力してください"
-        render "public/items/show"
+        render "public/products/show"
       else
         @cart_item = current_customer.cart_items.find_by(product_id: cart_item_params[:product_id])
-        @cart_item.quantity = @cart_item.amount + cart_item_params[:quantity].to_i
+        @cart_item.quantity = @cart_item.quantity + cart_item_params[:quantity].to_i
         @cart_item.save
         redirect_to cart_items_path
       end
@@ -44,7 +44,7 @@ class Public::CartItemsController < ApplicationController
       else
         @product = Product.find(cart_item_params[:product_id])
         @genres = Genre.all
-        render "public/items/show"
+        render "public/products/show"
       end
     end
   end
