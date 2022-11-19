@@ -47,7 +47,7 @@ scope module: :public do
 end
 
 scope module: :public do
-  resources:sipping_addresses
+  resources:shipping_addresses
 end
 
 # 管理者用
