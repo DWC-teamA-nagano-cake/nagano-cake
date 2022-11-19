@@ -1,7 +1,7 @@
 <div>
     <%= flash[:notice] %>
 <div>
-<div class="container">
+<div class="container m-3">
   <div class="row">
     <div class="col-lg-8">
       <h2>管理者ログイン</h2>
@@ -10,24 +10,24 @@
           <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-      
+
         <div class="field">
           <%= f.label :パスワード %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-      
+
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
-      
+
         <div class="actions">
           <%= f.submit "Log in", class:"btn btn-success" %>
         </div>
       <% end %>
-      
+
       <%= render "admin/shared/links" %>
     </div>
   </div>
