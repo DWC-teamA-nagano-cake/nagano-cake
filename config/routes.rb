@@ -21,6 +21,7 @@ end
 
 scope module: :public do
   resources:products,only: [:index,:show]
+  get "searches"=>"products#searches"
 end
 
 scope module: :public do
