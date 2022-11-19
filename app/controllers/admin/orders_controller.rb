@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
+   #管理者以外には処理してほしくないので、最初にadminかどうかを確認
   
   def show
     @order = Order.find(params[:id])
