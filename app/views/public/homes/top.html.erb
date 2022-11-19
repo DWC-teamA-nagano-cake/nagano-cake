@@ -16,11 +16,15 @@
     </div>
 
     <div class="col-1"></div>
-    <div class="col-6">
+    <div class="col-8">
+      <%= image_tag "top_image.jpg", style: "width: 680px; height: 360px; position: relative;" %>
+      <p style="position:absolute; top:120px; left:135px; background-color:rgba(0,0,0,0.3); color:#FFF; font-size:20px;">
         ようこそ、ながのCAKEへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
         購入には会員登録が必要になります。
+      </p>
+      </div>
     </div>
  </div>
 
@@ -42,9 +46,9 @@
       </div>
   </div>
 
-    <div class="row mt-3">
-      <div class="col-9"></div>
-      <div class="col-3">
+    <div class="row my-3">
+      <div class="col-10"></div>
+      <div class="col-2">
         <%= link_to "全ての商品を見る>", products_path %>
       </div>
     </div>
