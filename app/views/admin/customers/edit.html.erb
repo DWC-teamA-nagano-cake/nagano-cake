@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8 my-3">
       <h3><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
       <table class="table table-borderless">
         <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
