@@ -24,16 +24,38 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-      product = CartItem.find_by(product_id: params[:cart_item][:product_id], customer_id: current_customer.id)
-    if  product
-      product.update(quantity: product.quantity.to_i + params[:cart_item][:quantity].to_i)
+    if current_customer.cart_items.find_by(product_id: cart_item_params[:product_id])
+      if cart_item_params[:quantity].empty?
+        @product = Product.find(cart_item_params[:product_id])
+        @genres = Genre.all
+        @cart_item = CartItem.new
+        flash[:notice] = "個数を入力してください"
+        render "public/products/show"
+      else
+        @cart_item = current_customer.cart_items.find_by(product_id: cart_item_params[:product_id])
+        @cart_item.quantity = @cart_item.quantity + cart_item_params[:quantity].to_i
+        @cart_item.save
+        redirect_to cart_items_path
+      end
     else
-      cart_item = CartItem.new(cart_item_params)
-      cart_item.customer_id = current_customer.id
-      cart_item.save
+      if cart_item_params[:quantity].empty?
+        @product = Product.find(cart_item_params[:product_id])
+        @genres = Genre.all
+        @cart_item = CartItem.new
+        flash[:notice] = "個数を入力してください"
+        render "public/products/show"
+      else
+          if  @cart_item = current_customer.cart_items.new(cart_item_params)
+            @cart_item.save
+            redirect_to cart_items_path
+          else
+            @product = Product.find(cart_item_params[:product_id])
+            @genres = Genre.all
+            render "public/products/show"
+          end
+      end
     end
-    redirect_to cart_items_path
-  end
+  end  
 
   private
 
