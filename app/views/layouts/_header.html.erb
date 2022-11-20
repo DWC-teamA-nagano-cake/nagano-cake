@@ -1,5 +1,5 @@
-<header class="shadow-sm" style="opacity: 0.7;">
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary bg-gradient">
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <!--会員用のヘッダー-->
         <% if customer_signed_in? %>
@@ -10,10 +10,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li><%= link_to "マイページ", customers_my_page_path,class: 'nav-link text-dark' %></li>
-            <li><%= link_to "商品一覧", products_path,class: 'nav-link text-dark' %></li>
-            <li><%= link_to "カート", cart_items_path,class: 'nav-link text-dark'  %></li>
-            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'nav-link text-dark'  %></li>
+            <li><%= link_to "マイページ", customers_my_page_path,class: 'nav-link text-white' %></li>
+            <li><%= link_to "商品一覧", products_path,class: 'nav-link text-white' %></li>
+            <li><%= link_to "カート", cart_items_path,class: 'nav-link text-white'  %></li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: 'nav-link text-white'  %></li>
           </ul>
           <div><%= render 'layouts/search' %></div>
         </div>
