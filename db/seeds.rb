@@ -19,10 +19,10 @@ Admin.create!(
     last_name_kana: "タロウ#{n + 1}",
     first_name_kana: "テスト#{n + 1}",
     post_code: "1111111",
-    encrypted_password: "aaa111#{n + 1}",
+    password: "aaa111#{n + 1}",
     address: "日本#{n + 1}",
-    telephone_number: "0120000#{n + 1}",
-    is_deleted: false,
+    phone_number: "0120000#{n + 1}",
+    is_deleted: false
   )
 end
 
@@ -44,23 +44,93 @@ Genre.create!(
   ]
 )
 
+# -------------------
+product = Product.create!(
+  genre_id: 1,
+  name: 'チーズケーキ',
+  description: '新商品！',
+  price: 500
+
+)
+product.product_image.attach(io: File.open(Rails.root.join("app/assets/images/cake1.jpg")),
+filename: "cake1.jpg"
+
+)
+
+
+
+
+
+
+# Product.create!(
+#   [
+#     {
+#       genre_id: 1,
+#       name: 'チーズケーキ',
+#       description: '新商品！',
+#       price: 500,
+
+#       product_image: File.open("./app/assets/images/cake1.jpg")
+#     },
+#     {
+#       genre_id: 2,
+#       name: 'クッキー',
+#       description: '新商品！',
+#       price: 100,
+#       product_image: File.open("./app/assets/images/baked_goods1.jpg")
+#     },
+#     {
+#       genre_id: 3,
+#       name: 'チーズケーキ',
+#       description: '新商品！',
+#       price: 500,
+#       is_active: true,
+#       product_image: File.open("./app/assets/images/cake1.jpg")
+#     },
+#     {
+#       genre_id: 4,
+#       name: 'なめらかプリン',
+#       description: '新商品！',
+#       price: 300,
+#       product_image: File.open("./app/assets/images/candy1.jpg")
+#     },
+#     {
+#       genre_id: 5,
+#       name: 'キャンディ',
+#       description: '新商品！',
+#       price: 200,
+#       product_image: File.open("./app/assets/images/pudding1.jpg")
+#     }
+#   ]
+#   )
+
 5.times do |n|
   CartItem.create!(
-    item_id: n + 1,
+    product_id: 1,
     customer_id: 1,
     quantity: 2,
   )
 end
 
-5.times do |n|
+11.times do |n|
   Order.create!(
-    customer_id: n + 1,
+    customer_id: 1,
     name: "てすと#{n + 1} 太郎",
     address: "日本#{n + 1}",
-    postal_code: "1111111",
-    payment_method: 0,
+    post_code: "1111111",
+    method_of_payment: 0,
     total_payment: 1000,
-    shipping_cost: 800,
-    status: 0
+    postage: 800,
+    order_status: 0
+  )
+end
+
+5.times do |n|
+  OrderDetail.create!(
+    product_id: 1,
+    order_id: 1,
+    quantity: 2,
+    tax_price: 893,
+    making_status: 0
   )
 end
