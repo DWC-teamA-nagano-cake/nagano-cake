@@ -33,7 +33,7 @@
        <h2>新着商品</h2>
         <% @products.each do |products| %>
           <div>
-            <%= products.get_producut_image %>
+            <%= image_tag products.get_product_image,size:"240x180" %>
           </div>
           <div>
             <%= products.name %>
