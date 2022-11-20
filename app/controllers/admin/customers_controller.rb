@@ -5,7 +5,7 @@ class Admin::CustomersController < ApplicationController
   end
   
   def show
-    @cutomer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
     
   end
   
