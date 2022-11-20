@@ -5,7 +5,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail.update(order_detail_params)
     if @order_detail.making_status == "production"
       @order_detail.order.update(order_status: 2)
-    elsif OrderDetail.where(maiking_status: "completed", order_id: @order_detail.order_id).count == @order_detail.order.order_details.count
+    elsif OrderDetail.where(making_status: "completed", order_id: @order_detail.order_id).count == @order_detail.order.order_details.count
       @order_detail.order.update(order_status: 3)
     end
     redirect_to request.referer
