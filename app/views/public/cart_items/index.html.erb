@@ -4,6 +4,7 @@
     <div class="col-3">
       <p style="background-color:#EEEEEE; font-size:20px; text-align:center;">ショッピングカート</p>
     </div>
+    <div class="col-5"></div>
     <div class="col-3">
       <% unless @cart_items.empty? %>
         <%= link_to "カートを空にする", cart_item_destroy_all_path(@cart_items), method: :delete, class: "btn btn-danger" %>
@@ -12,8 +13,8 @@
   </div>
 
   <% unless @cart_items.empty? %>
-    <table class="table table-bordered">
-      <thead class="table thead-secondary">
+    <table class="table table-bordered mt-4">
+      <thead class="table table-secondary">
         <tr>
           <th>商品名</th>
           <th>単価(税込)</th>
@@ -27,7 +28,7 @@
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td>
-              <%= image_tag cart_item.product.get_product_image, size:"60x40" %>
+              <%= image_tag cart_item.product.get_product_image, size:"50x40" %>
               <%= cart_item.product.name %>
             </td>
             <td>
