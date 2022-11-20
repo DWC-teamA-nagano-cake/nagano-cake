@@ -27,7 +27,7 @@
     <% @products.each do |products| %>
       <div class="col-3">
         <%= link_to product_path(products) do %>
-        <%= products.get_product_image size:"240x180"%>
+        <%= image_tag products.get_product_image,size:"240x180"%>
         <% end %>
         <%= products.name %>
         <%= products.price %>
