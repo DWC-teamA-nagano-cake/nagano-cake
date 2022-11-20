@@ -10,7 +10,7 @@ class Public::ProductsController < ApplicationController
     @cart_item = CartItem.new
     @genres = Genre.all
   end
-  
+
   def searches
     @genres = Genre.all
     @search_name = params[:genre_name]
