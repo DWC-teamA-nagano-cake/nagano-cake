@@ -3,6 +3,7 @@ class Admin::HomesController < ApplicationController
 
   def top
     @orders = Order.page(params[:page])
+    # @search = Customer.ransack(params[:q])
     
   end
 end
