@@ -1,8 +1,7 @@
-<hr>
 <div class="container mt-5">
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-4">
+    <div class="col-3">
       <p style="background-color:#EEEEEE; font-size:20px; text-align:center;">ショッピングカート</p>
     </div>
     <div class="col-3">
@@ -78,9 +77,11 @@
 
   <% else %>
 
-    <div class="mx-auto">
+    <div style="text-align: center; font-size: 25px; padding: 150px 0 90px 0;">
       ショッピングカートは空です。
-      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+    </div>
+    <div style="text-align: center; padding: 0 0 200px 0;">
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary btn-lg" %>
     </div>
   <% end %>
 </div>
