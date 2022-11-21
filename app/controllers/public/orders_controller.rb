@@ -2,7 +2,8 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order=Order.new
-    @shipping_addresses=ShippingAddress.all
+    @customer=current_customer
+    @shipping_addresses=@customer.shipping_addresses
   end
 
   def confirm
@@ -20,6 +21,7 @@ class Public::OrdersController < ApplicationController
       @order.customer_id=current_customer.id
     end
     @cart_items=current_customer.cart_items.all
+    @total_price = CartItem.total_price(current_customer)
     @order_new=Order.new
     render :confirm
   end
@@ -47,11 +49,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders=Order.all
+    @customer=current_customer
+    @orders=@customer.orders
   end
 
   def show
     @order=Order.find(params[:id])
+    @total_price = OrderDetail.total_price(@order)
     @order_details=OrderDetail.where(order_id:params[:id])
   end
 
