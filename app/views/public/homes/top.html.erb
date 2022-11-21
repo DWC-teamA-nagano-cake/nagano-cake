@@ -1,4 +1,6 @@
-<%= flash[:notice] %>
+<div style="padding-left: 40px; font-size: 20px;">
+  <%= flash[:notice] %>
+</div>
 <div class="cocntainer mt-5">
   <div class="row">
     <div class="col-1"></div>
@@ -37,7 +39,9 @@
     <% @products.each do |products| %>
     <div class="col-2">
       <div>
-        <%= image_tag products.get_product_image, size: "190x150" %>
+        <%= link_to product_path(products) do %>
+          <%= image_tag products.get_product_image, size: "190x150" %>
+        <% end %>
       </div>
       <div>
         <%= products.name %>
