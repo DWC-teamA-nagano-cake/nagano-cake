@@ -1,9 +1,9 @@
 class Admin::HomesController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def top
     @orders = Order.page(params[:page])
     # @search = Customer.ransack(params[:q])
-    
+
   end
 end
