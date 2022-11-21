@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
    <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto my-3" >
-    <h3>会員一覧</h3>
-     <table class='table table-hover shadow-lg'>
+    <h3 class="my-3 bg-secondary px-3 col-md-4 text-center">会員一覧</h3>
+     <table class='table table-hover'>
       <thead>
-        <tr>
-        <th><%= sort_link(@q, :id, "会員ID", default_order: :desc) %></th>
+        <tr class="table-active">
+        <th>会員ID</th>
          <th>氏名</th>
          <th>メールアドレス</th>
          <th>ステータス</th>
