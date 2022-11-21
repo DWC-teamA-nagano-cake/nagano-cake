@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="my-3">注文情報確認</h2>
   <div class="row">
-    <table class="table table-bordered shadow-lg">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <th>商品名</th>
@@ -26,7 +26,7 @@
         <% end %>
       </tbody>
     </table>
-    <table class="table table-bordered table-sm shadow-lg">
+    <table class="table table-bordered table-sm">
       <tr>
         <th>送料</th>
         <th>800</th>
@@ -40,7 +40,7 @@
         <th><%= @total_price + 800 %></th>
       </tr>
     </table>
-    <table class="col-md-9 table table-bordered  shadow-lg">
+    <table class="col-md-9 table table-bordered">
       <tr>
         <th class="strong">支払い方法</th>
         <th><%= @order.method_of_payment_i18n %></th>
