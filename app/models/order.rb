@@ -10,6 +10,3 @@ class Order < ApplicationRecord
   end
 
 end
-
-
-# 入金待ち　入金確認　製作準備中　発送準備中　発送済

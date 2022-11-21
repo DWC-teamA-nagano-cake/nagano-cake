@@ -40,10 +40,10 @@ scope module: :public do
 end
 
 scope module: :public do
-  resources:orders,only: [:new,:create,:index,:show] do
+  resources:orders,only: [:new,:create,:index]
   post "orders/confirm"=>"orders#confirm",as:"confirm"
   get "orders/complete"=>"orders#complete",as:"complete"
-  end
+  get "orders/:id"=>"orders#show",as:"order"
 end
 
 scope module: :public do
