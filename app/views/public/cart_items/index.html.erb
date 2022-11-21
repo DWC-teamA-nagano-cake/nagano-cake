@@ -36,6 +36,14 @@
                <%= number_with_delimiter cart_item.product.with_tax_price %>
               </div>
             </td>
+            
+            <style>
+              select {
+                height: 28px;
+                margin: 0 15px 0 0;
+              }
+            </style>
+                    
             <td style="width: 80px;">
               <div style="margin: 17px 0 0 15px;">
                 <%= form_with model: cart_item do |f| %>
