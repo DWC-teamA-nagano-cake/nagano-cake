@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2 class="bg-secondary">マイページ</h2>
+      <h3 class="bg-secondary px-3 my-3 col-md-4 text-center">会員情報編集</h3>
       <table class="table table-borderless">
         <%= form_with model:@customer,url:customers_information_path,method: :patch do |f| %>
         <tr>
-          <th>氏名</th>
-          <th><%= f.text_field:last_name %> <%= f.text_field:first_name %></th>
+          <th class="col-md-3 col-sm-4">氏名</th>
+          <th class="col-md-8 col-sm-8"><%= f.text_field:last_name %> <%= f.text_field:first_name, class:"inline-block ml-3"%></th>
         </tr>
         <tr>
-          <th>カナ</th>
-          <th><%= f.text_field:last_name_kana %> <%= f.text_field:first_name_kana %></th>
+          <th>フリガナ</th>
+          <th><%= f.text_field:last_name_kana %> <%= f.text_field:first_name_kana, class:"inline-block ml-3" %></th>
         </tr>
         <tr>
           <th>郵便番号</th>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <th>住所</th>
-          <th><%= f.text_field:address %></th>
+          <th><%= f.text_field:address, class:"col-md-8" %></th>
         </tr>
         <tr>
           <th>電話番号</th>
