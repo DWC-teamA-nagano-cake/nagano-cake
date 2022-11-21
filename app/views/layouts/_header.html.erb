@@ -4,7 +4,7 @@
         <!--会員用のヘッダー-->
         <% if customer_signed_in? %>
         <h5 class=" m-0 text-success">ようこそ、<%= current_customer.last_name %>さん!</h5>
-        <a class="navbar" href="/">ロゴの画像</a>
+        <a class="navbar" href="/"><%= image_tag('logo.jpg')%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,7 @@
         </div>
         <!--管理人のヘッダー-->
         <% elsif admin_signed_in? %>
-        <a class="navbar" href="/">ロゴの画像</a>
+        <a class="navbar" href="/"><%= image_tag('logo.jpg')%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +34,7 @@
           <div><%= render 'layouts/search' %></div>
         </div>
         <% else %>
-        <a class="navbar" href="/">ロゴの画像</a>
+        <a class="navbar" href="/"><%= image_tag('logo.jpg')%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

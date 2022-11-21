@@ -1,7 +1,6 @@
 <!--検索フォーム-->
 
 <%= search_form_for @q, url: admin_customers_path, class:"search-form" do |f| %>
- <%= f.label :last_name_or_first_name_or_is_deleted, "会員情報を入力してください", class: "text-white" %>
 <%= f.search_field :last_name_or_first_name_or_is_deleted, class: "border border-white", placeholder: "検索" %>
 
 <%= f.submit "検索", class:'search-button' %>

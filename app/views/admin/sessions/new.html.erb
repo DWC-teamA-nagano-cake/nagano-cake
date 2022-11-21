@@ -4,17 +4,10 @@
   </symbol>
 </svg>
 
-<script>
-  var alertList = document.querySelectorAll('.alert')
-  alertList.forEach(function (alert) {
-    new bootstrap.Alert(alert)
-  })
-  </script>
 <div class="alert alert-primary d-flex align-items-center btn-close" role="alert" ata-bs-dismiss="alert" aria-label="Close">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#check-circle-fill"/></svg>
   <div>
      <%= flash[:notice] %>
-     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
 

@@ -1,39 +1,51 @@
 <div class="container">
-  <h2 class="bg-secondary"> 注文情報入力</h2>
+  <h2 class="my-3"> 注文情報入力</h2>
   <div class="row">
-    <%= form_with model:@order, url:confirm_path , method: :post do |f| %>
-      <h4>支払い方法</h4>
-      <%= f.radio_button:method_of_payment,Order.method_of_payments.key(0) %>
-      <%= f.label:method_of_payment,Order.method_of_payments_i18n[:credit_card] %>
-      <%= f.radio_button:method_of_payment,Order.method_of_payments.key(1) %>
-      <%= f.label:method_of_payment,Order.method_of_payments_i18n[:transfer] %>
-      <h4>お届け先</h4>
-      <p>
-        <%= f.radio_button:select_address,0 %>ご自身の住所<br>
-        <%= current_customer.address_display %>
-      </p>
-      <p>
-        <%= f.radio_button:select_address,1 %>登録済み住所<br>
-        <%= f.select:shipping_address_id,options_from_collection_for_select(@shipping_addresses,:id,:address_display) %>
-      </p>
+    <div class="col-lg-12">
+      <%= form_with model:@order, url:confirm_path , method: :post do |f| %>
       <div>
-        <%= f.radio_button:select_address,2 %>新しいお届け先
-      <table>
-        <tr>
-          <td>郵便番号（ハイフンなし）</td>
-          <td><%= f.text_field:post_code %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= f.text_field:address,size: "65x5" %></td>
-        </tr>
-        <tr>
-          <td>宛名</td>
-          <td><%= f.text_field:name %></td>
-        </tr>
-      </table>
+        <h4>支払い方法</h3>
+        <div class="col-md-12 table table-hover shadow-lg">
+          <p>
+            <%= f.radio_button:method_of_payment,Order.method_of_payments.key(0) %>
+            <%= f.label:method_of_payment,Order.method_of_payments_i18n[:credit_card] %>
+          </p>
+          <p>
+            <%= f.radio_button:method_of_payment,Order.method_of_payments.key(1) %>
+            <%= f.label:method_of_payment,Order.method_of_payments_i18n[:transfer] %>
+          </p>
+        </div>
+        <h4>お届け先</h3>
+        <div class="col-md-12 table table-hover shadow-lg">
+          <p><%= f.radio_button:select_address,0 %>ご自身の住所</p>
+          <p><%= current_customer.address_display %><p>
+        </div>
+        <div class="col-md-12 table table-hover shadow-lg">
+          <p><%= f.radio_button:select_address,1 %>登録済み住所</p>
+          <p><%= f.select:shipping_address_id,options_from_collection_for_select(@shipping_addresses,:id,:address_display) %></p>
+        </div>
+        <div class="col-md-12 table table-hover shadow-lg">
+          <p><%= f.radio_button:select_address,2 %>新しいお届け先</p>
+          <table>
+          <tr>
+            <td class="col-md-3">郵便番号（ハイフンなし）</td>
+            <td><%= f.text_field:post_code %></td>
+          </tr>
+          <tr>
+            <td class="col-md-3">住所</td>
+            <td><%= f.text_field:address,size: "65x5" %></td>
+          </tr>
+          <tr>
+            <td class="col-md-3">宛名</td>
+            <td><%= f.text_field:name %></td>
+          </tr>
+          </table>
+        </div>
       </div>
-      <%= f.submit "確認画面へ進む",class:"btn btn-lg btn-primary" %>
-    <% end %>
+      <div class="my-3 col-lg-2 ml-auto">
+        <%= f.submit "確認画面へ進む",class:"btn btn-lg btn-primary" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
