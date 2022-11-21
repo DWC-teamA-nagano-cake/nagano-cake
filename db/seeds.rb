@@ -45,17 +45,19 @@ Genre.create!(
 )
 
 # -------------------
-product = Product.create!(
-  genre_id: 1,
-  name: 'チーズケーキ',
-  description: '新商品！',
-  price: 500
-
-)
-product.product_image.attach(io: File.open(Rails.root.join("app/assets/images/cake1.jpg")),
-filename: "cake1.jpg"
-
-)
+4.times do |n|
+  product = Product.create!(
+    genre_id: n + 1,
+    name: 'チーズケーキ',
+    description: '新商品！',
+    price: 500
+  
+  )
+  product.product_image.attach(io: File.open(Rails.root.join("app/assets/images/cake1.jpg")),
+  filename: "cake1.jpg"
+  
+  )
+end
 
 
 
@@ -106,15 +108,15 @@ filename: "cake1.jpg"
 
 5.times do |n|
   CartItem.create!(
-    product_id: 1,
-    customer_id: 1,
+    product_id: n + 1,
+    customer_id: n + 1,
     quantity: 2,
   )
 end
 
 11.times do |n|
   Order.create!(
-    customer_id: 1,
+    customer_id: n + 1,
     name: "てすと#{n + 1} 太郎",
     address: "日本#{n + 1}",
     post_code: "1111111",
@@ -125,10 +127,10 @@ end
   )
 end
 
-5.times do |n|
+4.times do |n|
   OrderDetail.create!(
-    product_id: 1,
-    order_id: 1,
+    product_id: n + 1,
+    order_id: n+ 1,
     quantity: 2,
     tax_price: 893,
     making_status: 0

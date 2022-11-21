@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
-      <h3>注文履歴詳細</h3>
-       <table class="table table-borderless">
+      <h3 class="my-3">注文履歴詳細</h3>
+       <table class="table table-hover shadow-lg">
         <tbody>
           <tr>
             <td>購入者</td>
@@ -39,7 +39,7 @@
           </tr>
         </tbody>
        </table>
-       <table class='table table-hover table-inverse'>
+       <table class='table table-hover shadow-lg'>
          <thead>
            <tr>
              <th>商品名</th>
@@ -60,7 +60,7 @@
               </td>
               <td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
-                <%= f.select :making_status, @making_status_key, {prompt: "選択してください"} %>　　
+                <%= f.select :making_status, @making_status_key, {prompt: "選択してください"} %>
                 <%= f.submit "更新", class: "btn btn-success" %>
               <% end %>
                </td>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="col-lg-4 mt-5">
-      <table class="table table-borderless">
+      <table class="table table-hover shadow-lg">
         <tbody>
              <% total = 0 %>
           <tr>

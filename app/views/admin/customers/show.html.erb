@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-8 my-3">
       <h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
-      <table class="table table-borderless">
+      <table class="table table-bordered table-hover shadow-sm">
         <tbody>
           <tr>
             <td style="width: 150px">会員ID</td>
@@ -33,10 +33,10 @@
             <td><%= @customer.email %></td>
           </tr>
           <tr>
-            <td style="width: 150px">会員ステータス</td>
+            <td style="width: 150px" class="align-middle">会員ステータス</td>
             <td>
               <% if @customer.is_deleted %>
-               <p class="text-muted font-weight-bold">退会</p>
+               <p class="text-muted font-weight-bold align-middle">退会</p>
               <% else %>
               <P class="text-success font-weight-bold">有効</P>
               <% end %>
@@ -44,10 +44,11 @@
           </tr>
         </tbody>
       </table>
+       <div>
+          <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success mx-5" %>
+          <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary " %>
+        </div>
     </div>
-    <div class="col-5 offset-1">
-      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success mx-5" %>
-      <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
-    </div>
+
   </div>
 </div>
