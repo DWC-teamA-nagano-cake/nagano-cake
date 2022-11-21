@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="bg-secondary"> 注文情報入力</h2>
   <div class="row">
-    <%= form_with model:@order,url:'orders/confirm', method: :post do |f| %>
+    <%= form_with model:@order, url:confirm_path , method: :post do |f| %>
       <h4>支払い方法</h4>
       <%= f.radio_button:method_of_payment,Order.method_of_payments.key(0) %>
       <%= f.label:method_of_payment,Order.method_of_payments_i18n[:credit_card] %>

@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
       @address=ShippingAddress.find(params[:order][:shipping_address_id])
       @order.post_code=@address.post_code
       @order.name=@address.name
-      @order.address=@address,address
+      @order.address=@address.address
     elsif params[:order][:select_address]=='2'
       @order.customer_id=current_customer.id
     end
@@ -34,12 +34,13 @@ class Public::OrdersController < ApplicationController
       @order_details.order_id=@order.id
       @order_details.product_id=cart_item.product.id
       @order_details.tax_price=cart_item.product.with_tax_price
+      @order_details.quantity=cart_item.quantity
       @order_details.making_status=0
       @order_details.save
     end
 
     CartItem.destroy_all
-    redirect_to complete
+    redirect_to "/orders/complete"
   end
 
   def complete
