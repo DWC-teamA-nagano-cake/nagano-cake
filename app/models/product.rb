@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   has_one_attached :product_image
 
   validates :price, presence: true
+  validates :product_image, presence: true
 
   def get_product_image
     unless product_image.attached?
