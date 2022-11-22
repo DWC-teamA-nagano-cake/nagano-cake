@@ -4,6 +4,21 @@
     <h2>商品新規登録</h2>
     <div class="col-md-6 mt-4">
       <table class="table table-borderless">
+        <!--バリデーションエラーメッセージ-->
+        <% if @product.errors.any? %>
+          <tr>
+            <td></td>
+            <td>
+              <%= @product.errors.count %>件のエラーが発生しました
+              <ul class="list-group list-unstyled">
+                <% @product.errors.full_messages.each do |message| %>
+                  <li class="text-danger"><%= message %></li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
+        <!--登録フォーム-->
         <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
           <tr>
             <td>商品画像</td>
