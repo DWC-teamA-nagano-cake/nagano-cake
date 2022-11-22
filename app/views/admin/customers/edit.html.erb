@@ -10,7 +10,7 @@
         </ul>
       <% end %>
 
-      <h3 class="my-3 bg-secondary px-3 col-md-8 text-center offset-1"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
+      <h3 class="mt-2"><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
       <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
       <table class="table table-borderless offset-2">
         <tbody>
