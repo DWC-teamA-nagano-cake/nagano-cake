@@ -19,4 +19,9 @@ class Public::ProductsController < ApplicationController
     @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(8)
   end
 
+  def search_word
+    @genres = Genre.all
+    @products = @q.result(distinct: true).page(params[:page]).per(8)
+  end
+
 end

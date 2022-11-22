@@ -13,6 +13,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 # 顧客用
+
+
+  
+
+
 scope module: :public do
 	root to:"homes#top"
   get "about"=>"homes#about",as:"about"
@@ -22,6 +27,8 @@ end
 scope module: :public do
   resources:products,only: [:index,:show]
   get "searches"=>"products#searches"
+  get "search_word" => "products#search_word"
+
 end
 
 scope module: :public do
