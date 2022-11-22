@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Product.ransack(params[:q])
-    @product = @q.result(distinct: true).page(params[:page]).per(8)
+    @product = @q.result(distinct: true)
     # @product = @q.result.includes(:name).page(params[:page]).to_a.uniq
 
   end
