@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <!--会員用のヘッダー-->
         <% if customer_signed_in? %>
-        <h5 class=" m-0 text-success">ようこそ、<%= current_customer.last_name %>さん!</h5>
         <a class="navbar" href="/"><%= image_tag('logo.jpg')%></a>
+        <h5 class=" m-0 text-white">ようこそ、<%= current_customer.last_name %>さん!</h5>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
