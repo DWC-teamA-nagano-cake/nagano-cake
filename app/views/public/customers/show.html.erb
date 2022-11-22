@@ -1,42 +1,49 @@
 <div class="container">
-  <h3 class="bg-secondary px-3 my-3 col-md-4 text-center">マイページ</h3>
+  <h3 class="px-3 my-3 col-md-4 text-center">マイページ</h3>
   <div class="row">
     <div class="col-md-9">
-      <h4>登録情報
-        <%= link_to "編集する",customers_information_edit_path(current_customer),class:"btn btn-lg btn-success inline-block ml-4 px-4 mb-2" %>
-      </h4>
+      <table  class="table table-borderless">
+        <tr>
+          <th>登録情報</th>
+          <th><%= link_to "編集する",customers_information_edit_path(current_customer),class:"btn btn-sm btn-success inline-block ml-4 px-4 mb-2" %></th>
+        </tr>
+      </table>
       <table class="table table-bordered">
         <tr>
           <th class="table-active col-md-3 col-sm-4">氏名</th>
-          <th><%= @customer.last_name %> <%= @customer.first_name %></th>
+          <td><%= @customer.last_name %> <%= @customer.first_name %></td>
         </tr>
         <tr>
           <th class="table-active col-md-3 col-sm-4">カナ</th>
-          <th><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></th>
+          <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
         </tr>
         <tr>
           <th class="table-active col-md-3 col-sm-4">郵便番号</th>
-          <th><%= @customer.post_code %></th>
+          <td><%= @customer.post_code %></td>
         </tr>
         <tr>
           <th class="table-active col-md-3 col-sm-4">住所</th>
-          <th><%= @customer.address %></th>
+          <td><%= @customer.address %></td>
         </tr>
         <tr>
           <th class="table-active col-md-3 col-sm-4">電話番号</th>
-          <th><%= @customer.phone_number %></th>
+          <td><%= @customer.phone_number %></td>
         </tr>
         <tr>
           <th class="table-active col-md-3 col-sm-4">メールアドレス</th>
-          <th><%= @customer.email %></th>
+          <td><%= @customer.email %></td>
         </tr>
       </table>
-      <h4 class="mb-3">配送先
-        <%= link_to "一覧を見る",shipping_addresses_path,class:"btn btn-lg btn-primary inline-block ml-4 px-4" %>
-      </h4>
-      <h4 class="mb-3">注文履歴
-        <%= link_to "一覧を見る",orders_path,class:"btn btn-lg btn-primary inline-block ml-4 px-4" %>
-      </h4>
+      <table class="table table-borderless">
+        <tr>
+          <th class="mb-3">配送先</th>
+          <th><%= link_to "一覧を見る",shipping_addresses_path,class:"btn btn-sm btn-primary inline-block ml-4 px-4" %></th>
+        </tr>
+        <tr>
+          <th class="mb-3">注文履歴</th>
+          <th><%= link_to "一覧を見る",orders_path,class:"btn btn-sm btn-primary inline-block ml-4 px-4" %></th>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
