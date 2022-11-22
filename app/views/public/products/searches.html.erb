@@ -12,13 +12,13 @@
         </tbody>
       </table>
     </div>
-  
+
     <div class="col-9">
       <div class="d-flex">
-        <p style="font-size:35px"><%= @search_genre %>一覧</p>
+        <p style="font-size:35px"><%= @search_name %>一覧</p>
         <p style="font-size:25px; line-height: 2;">(全<%= @products_all.count %>件)</p>
       </div>
- 
+
       <div class="d-flex flex-wrap items_width">
         <% @products_all.each do |products| %>
           <div class="mx-3 my-3">
@@ -32,7 +32,7 @@
       </div>
 
       <div class="row justify-content-center my-4">
-        <%= paginate @products %>
+        <%= paginate @products, theme: 'bootstrap-5' %>
       </div>
     </div>
 </div>
