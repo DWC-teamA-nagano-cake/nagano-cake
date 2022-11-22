@@ -21,7 +21,6 @@ class Public::ProductsController < ApplicationController
 
   def search_word
     @genres = Genre.all
-    @products = @q.result(distinct: true).page(params[:page]).per(8)
   end
 
 end
