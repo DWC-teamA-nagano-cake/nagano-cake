@@ -14,9 +14,8 @@ class Public::ProductsController < ApplicationController
   def searches
     @genres = Genre.all
     @search_genre = params[:genre]
-    genre = Genre.where("genre LIKE?", @search_genre)
-    @products_all = genre.inject(init = []){|result, genre| result + genre.products}
-    @products = Kaminari.paginate_array(@products_all).page(params[:page]).per(8)
+    @products_all = Genre.search_for(@search_genre)
+    @products = Kaminari.paginate_array(Genre.search_for(@search_genre)).page(params[:page]).per(8)
   end
 
   def search_word

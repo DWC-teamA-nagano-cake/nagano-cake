@@ -20,7 +20,7 @@
       </div>
 
       <div class="d-flex flex-wrap items_width">
-        <% @products_all.each do |products| %>
+        <% @products.each do |products| %>
           <div class="mx-3 my-3">
             <%= link_to product_path(products) do %>
             <%= image_tag products.get_product_image, size: "200x160" %>
