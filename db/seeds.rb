@@ -51,11 +51,11 @@ Genre.create!(
     name: 'チーズケーキ',
     description: '新商品！',
     price: 500
-  
+
   )
   product.product_image.attach(io: File.open(Rails.root.join("app/assets/images/cake1.jpg")),
   filename: "cake1.jpg"
-  
+
   )
 end
 
