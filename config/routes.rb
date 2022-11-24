@@ -13,6 +13,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 # 顧客用
+
 scope module: :public do
 	root to:"homes#top"
   get "about"=>"homes#about",as:"about"
@@ -21,15 +22,18 @@ end
 
 scope module: :public do
   resources:products,only: [:index,:show]
+  get "searches"=>"products#searches"
+  get "search_word" => "products#search_word"
+
 end
 
 scope module: :public do
-  get 'cutomers/my_page' => 'customers#show'
-  get 'cutomers/information/edit' => 'customers#edit'
-  patch 'cutomers/information' => 'customers#update'
-  
-  
-  get "customers/unsubscribe"=>"costomers#unsubscribe",as:"unsubscribe"
+  get 'customers/my_page' => 'customers#show'
+  get 'customers/information/edit' => 'customers#edit'
+  patch 'customers/information' => 'customers#update'
+
+
+  get "customers/unsubscribe"=>"customers#unsubscribe",as:"unsubscribe"
   patch "customers/withdrawal"=>"customers#withdrawal",as:"withdrawal"
 end
 scope module: :public do
@@ -39,14 +43,14 @@ scope module: :public do
 end
 
 scope module: :public do
-  resources:orders,only: [:new,:create,:index,:show] do
+  resources:orders,only: [:new,:create,:index]
   post "orders/confirm"=>"orders#confirm",as:"confirm"
   get "orders/complete"=>"orders#complete",as:"complete"
-  end
+  get "orders/:id"=>"orders#show",as:"order"
 end
 
 scope module: :public do
-  resources:sipping_addresses
+  resources:shipping_addresses
 end
 
 # 管理者用
@@ -56,8 +60,8 @@ namespace :admin do
   resources:products
 
   resources:genres,only: [:index,:create,:edit,:update]
-  
-  resources:costomers,only: [:index,:show,:edit,:update]
+
+  resources:customers,only: [:index,:show,:edit,:update]
 
   resources:orders,only: [:show,:update]
 

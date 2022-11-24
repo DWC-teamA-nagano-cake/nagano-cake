@@ -73,3 +73,6 @@ gem 'rubocop-rails', require: false
 gem 'rubocop-minitest', require: false
 gem 'rubocop-packaging', require: false
 gem 'rubocop-rspec'
+
+gem 'ransack'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
